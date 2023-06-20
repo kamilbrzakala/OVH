@@ -1,16 +1,17 @@
+
 import requests
 import time
 import hashlib
-import ssl
 
-context = ssl._create_unverified_context()
 
-#requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
-
-server_time = requests.get('https://eu.api.ovh.com/1.0/auth/time', verify=False)
-
+server_time = requests.get('https://eu.api.ovh.com/1.0/auth/time')
+print(server_time)
 server_time = int(server_time.text)
+print(server_time)
 time_delta = server_time - int(time.time())
+print(time_delta)
+
+
 application_key = ''
 application_secret = ''
 consumer_key = ''
@@ -37,6 +38,5 @@ headers = {
 #ca_bundle_path = r'C:\Users\brzakalak\Downloads\certs.pem'
 
 response = requests.get(url, headers=headers)
-response.content
-
+print(response.content)
 
