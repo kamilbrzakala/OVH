@@ -35,8 +35,6 @@ headers = {
     'X-Ovh-Signature' : "$1$" + signature.hexdigest()
 }
 
-#ca_bundle_path = r'C:\Users\brzakalak\Downloads\certs.pem'
-
 response = requests.get(url, headers=headers)
 print(response.content)
 
